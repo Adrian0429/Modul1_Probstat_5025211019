@@ -12,8 +12,7 @@ paste("Hasilnya : ", dgeom(x-1, p))
 #b. mean Distribusi Geometrik dengan 10000 data random , prob = 0,20 dimana distribusi
 #geometrik acak tersebut X = 3 ( distribusi geometrik acak () == 3 )
 
-random <- 10000
-mean(rgeom(random,p)==3)
+  
 
 #c. Bandingkan Hasil poin a dan b , apa kesimpulan yang bisa didapatkan?
 
