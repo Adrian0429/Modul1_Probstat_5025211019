@@ -32,12 +32,25 @@
     ![Histogram nomor 1](https://user-images.githubusercontent.com/86884506/194886627-a1903fbe-b953-4306-945a-28f50c532c6e.png)
             
     ##### e. Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Geometrik.
+    ```
+    rataan = 1/p
+    varian = (1-p)/p^2
+    paste("nilai dari rataan (µ): ", rataan)
+    paste("nilai dari varian (σ²): ", varian)
+    ```
     ![image](https://user-images.githubusercontent.com/86884506/194886751-fab7f2d8-1808-4ebf-960c-905f39721f76.png)
 
 
 2. Terdapat 20 pasien menderita Covid19 dengan peluang sembuh sebesar 0.2. Tentukan :
 
     ##### a. Peluang terdapat 4 pasien yang sembuh.
+    ```
+    n <- 20
+    p  <- 0.2
+    x <- 4
+    paste("Peluang untuk terdapat 4 pasien yang sembuh adalah : ", dbinom(x,n,p))
+    ```
+    
    ![image](https://user-images.githubusercontent.com/86884506/194890610-fe675729-90c9-4aa1-a321-de07f2d06dee.png)
 
     ##### b. Gambarkan grafik histogram berdasarkan kasus tersebut.
@@ -46,12 +59,31 @@
 
     
     ##### c. Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Binomial.
+    ```  
+    rataan = n*p
+    varian = n*p*(1-p)
+    paste("Nilai dari Rataan (μ) : ", rataan)
+    paste("Nilai dari Varian (σ²) : ", varian)
+    ```
+    
     ![image](https://user-images.githubusercontent.com/86884506/194890081-eaaee012-5cd8-47e4-9018-a4d4c22bd6f9.png)
 
 
 3. Diketahui data dari  sebuah tempat bersalin di rumah sakit tertentu menunjukkan rata-rata historis 4,5 bayi lahir di rumah sakit ini setiap hari. (gunakan Distribusi Poisson)
 
-    ##### a.Berapa peluang bahwa 6 bayi akan lahir di rumah sakit ini besok?
+    ```
+    x<-6
+    lambda<-4.5
+    paste("Peluang akan lahir 6 bayi di rumah sakit ini besok adalah : ", dpois(x, lambda))
+    ```
+    
+    ##### a.Berapa peluang bahwa 6 bayi akan lahir di rumah sakit ini besok?       
+    ```
+    x<-6
+    lambda<-4.5
+    paste("Peluang akan lahir 6 bayi di rumah sakit ini besok adalah : ", dpois(x, lambda))
+    ```
+
     ![image](https://user-images.githubusercontent.com/86884506/194895078-ad6b2a8b-b856-4301-b7d5-87633ca9d4bb.png)
 
     ##### b. simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini  selama setahun (n = 365)
@@ -62,12 +94,23 @@
     > Jika hasil dari poin a dikalikan dengan 365, maka hasilnya akan mendekati hasil pada poin b walaupun tidak sama persis.
     
     ##### d. Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Poisson
+    ```
+    rataan=varian=lambda
+    paste("Nilai Rataan (µ) : ", rataan)
+    paste("Nilai Varian (σ²) : ", varian)
+    ```
+    
     ![image](https://user-images.githubusercontent.com/86884506/194905405-45633e26-d5e2-44e0-b7e4-fae0384f3af1.png)
 
 4. Diketahui nilai x = 2 dan v = 10. Tentukan:
 
     ##### a. Fungsi Probabilitas dari Distribusi Chi-Square.
     fungsi probabilitas dari Distribusi Chi-Square adalah : 
+    ```
+    x <- 2
+    v <- 10
+    dchisq(x,v,ncp = 0)
+    ```
     
     ![image](https://user-images.githubusercontent.com/86884506/195046597-8556636e-a73e-45a9-9a5c-5c53f8786fd5.png)
     
@@ -77,6 +120,12 @@
     ![chisquare](https://user-images.githubusercontent.com/86884506/195047563-92427afd-9762-429b-831e-77e09c7db399.png)
     
     ##### c. Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Chi-Square.
+    ```
+    rataan=v
+    varian=2*v
+    paste("Nilai dari Rataan (μ): ", rataan)
+    paste("Nilai dari Varian (σ²): ", varian)
+    ```
     
     ![image](https://user-images.githubusercontent.com/86884506/195047764-0a83d130-a118-43a9-acfd-2b7fae2416bc.png)
 
@@ -84,11 +133,23 @@
 5. Diketahui bilangan acak (random variable) berdistribusi exponential (λ = 3). Tentukan
 
     ##### a. Fungsi Probabilitas dari Distribusi Exponensial 
+    
+           
+        n<-10
+        lambda <- 3
+        paste("hasilnya adalah : ", rexp(n, rate = lambda))
+        
     fungsi Distribusi Exponensial : 
         ![image](https://user-images.githubusercontent.com/86884506/195048651-f8b5ef99-666d-41ee-8cb0-fa4a5fd07b69.png)
 
-    
      ##### b. Histogram dari Distribusi Exponensial untuk 10, 100, 1000 dan 10000 bilangan random
+    
+         
+        hist(rexp(10, rate = lambda), main = "Histogram dari Distribusi Exponensial untuk 10 bilangan random")
+        hist(rexp(100, rate = lambda), main = "Histogram dari Distribusi Exponensial untuk 100 bilangan random")
+        hist(rexp(1000, rate = lambda), main = "Histogram dari Distribusi Exponensial untuk 1000 bilangan random")
+        hist(rexp(10000, rate = lambda), main = "Histogram dari Distribusi Exponensial untuk 10000 bilangan random")
+        
     
       ![exp10](https://user-images.githubusercontent.com/86884506/195048882-7019f59b-512d-4e58-8319-dceebb323c9e.png)
       
@@ -104,6 +165,15 @@
   Gunakan set.seed(1)
   Gunakan fungsi bawaan R
   
+    
+    N <- 100
+    set.seed(1)
+    rataan = mean(rexp(N, rate = lambda))
+    varian = (sd(rexp(N, rate = lambda))) ^ 2
+    paste("Nilai Rataan(µ): ", rataan)
+    paste("Nilai Varian(σ²): ", varian)
+    
+    
   ![image](https://user-images.githubusercontent.com/86884506/195052901-e16afd16-e187-49e0-938c-8bc7a8cc4fdc.png)
 
 
@@ -121,7 +191,18 @@ X1 = 5
 X2 = 6
 
    hasil dari Z-Score adalah : 
-   
+        ```
+        n <- 100
+        mean <- 50
+        
+        sd <- 8 
+        
+        zScore = rnorm(n, mean, sd)
+        
+        zScore
+        
+        plot (zScore)
+        ```
 ![image](https://user-images.githubusercontent.com/86884506/195053524-c99efb22-f7ed-4f35-a1f5-5200db2922bf.png)
     
 
@@ -134,11 +215,20 @@ hasil plot :
 NRP_Nama_Probstat_{Nama Kelas}_DNhistogram
 Contoh :
 312312312_Rola_Probstat_A_DNhistogram
-
+    
+    
+    hist(zScore, 
+    breaks = 50,
+    main="5025211019_Adrian Karuna Soetikno_Probstat A_DNhistogram")
+    
+    
 hasil generate histogram : 
 ![zscorehistoadrian](https://user-images.githubusercontent.com/86884506/195058806-09dc5340-4a78-4381-b82a-e98679f267f3.png)
 
    ##### c. Nilai Varian (σ²) dari hasil generate random nilai Distribusi Normal.
-    
+   
+        varian=sd*sd
+        paste("Nilai Varian: ", varian)
+        
    ![image](https://user-images.githubusercontent.com/86884506/195060234-26a02d63-3fe6-457d-8cbc-b39dc3e0148d.png)
 
